@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /* do-while문
+            - 1회 동작 후 조건식을 확인하여 참일 경우 반복 수행하는 구문
+
+            do{
+                // 실행 문장
+            } while (조건식)
+
+            - 조건에 상관없이 무조건 한번은 실행해야할 때 용이
+        */
+
+        // let num = 1;
+
+        // do {
+        //     console.log('num', num);
+        //     num++;
+        // } while (num <= 10);
+
+        // 1-1) 1~100까지의 숫자 중, 입력한 숫자의 배수만 출력하시오.
+        // 1-2) 1~100까지의 숫자 중, 사용자가 입력한 숫자의 배수의 합을 출력하시오
+        
+        let num = parseInt(prompt("배수 입력")); // 배수 입력 받기
+        let count = 1; // 1부터 100까지 올라갈 변수 선언
+        let sum = 0; // 배수들의 합을 담을 변수
+        let array = []; // 배수들을 담을 배열
+
+        do {
+            if (count % num === 0) { // count 변수를 입력받은 배수로 나머지 연산자 사용
+                // console.log(count);
+                array = array + count + ", "; // 배열에 배수 담기
+                sum += count; // 배수들의 합 담기
+            }
+            count++; // 카운트 올려주기
+        } while (count <= 100); 
+        console.log(array); // 배수 로그로 찍어주기
+        console.log(`${num}배수의 합 : ${sum}`); // 합 찍어주기
+        
+    </script>
+</body>
+</html>

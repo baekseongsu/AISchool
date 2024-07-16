@@ -1,0 +1,128 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  height: 100vh;
+}
+
+.table_sidebar {
+  width: 400px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.section-wrapper {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.section {
+  border: 2px solid #000;
+  width: 500px;
+  height: 50px;
+  margin-right: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+}
+
+iframe {
+  width: 500px;
+  height: 230px;
+  margin-right: 340px;
+}
+
+.iframe-info {
+  width: 500px;
+  height: 250px;
+  padding-left: 200px;
+}
+
+.info {
+  width: 170px;
+  height: 200px;
+  padding: 20px;
+  margin-left: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: 1px solid #ddd; */
+  background-color: #fafafa;
+}
+
+button.toggle-info {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+button.toggle-info:hover {
+  background-color: #0056b3;
+}
+
+button.back {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button.back:hover {
+  background-color: #0056b3;
+}
+
+.info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.exercise-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.exercise-table th,
+.exercise-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.exercise-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.exercise-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

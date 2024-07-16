@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /* 계산기 실습!
+        - 두 숫자와 연산자를 입력받았을 때 결과를 출력하는 프로그램을 구현하겠다.
+        
+        STEP 1) 첫번째 숫자를 입력받는다. (num1)
+        STEP 2) 두번째 숫자를 입력받는다. (num2)
+        STEP 3) 연산할 기호를 입력받는다. (+,-,*,/)
+
+        STEP 4) 4개의 함수를 생성 
+         - 함수 이름 : addNum, minusNum, multiNum, divNum 
+         - 매개변수 : a,b
+         - 실행 함수가 아닌, return 포함 함수 
+         - minus, div 는 큰수에서 작은수에 대한 연산을 진행 
+         - 결과는 문서에 __과 __에 대한 연산결과는 __입니다. 라고 출력 
+        */
+
+        let num1 = parseInt(prompt('첫번째 숫자 입력'))
+        let num2 = parseInt(prompt('두번째 숫자 입력'))
+        let oper = (prompt('연산자 입력'))
+
+        const addNum = (a, b) => {
+            return a + b;
+        }
+
+        const minusNum = (a, b) => {
+            return a > b ? a - b : b - a;
+        }
+
+        const multiNum = (a, b) => {
+            return a * b;
+        }
+
+        const divNum = (a, b) => {
+            return a > b ? a / b : b / a;
+        }
+
+        let result = 0;
+
+        if (oper === '+') {
+            result = addNum(num1, num2)
+        } else if(oper === '-') {
+            result = minusNum(num1, num2)
+        } else if(oper === '*') {
+            result = multiNum(num1, num2)
+        } else if(oper === '/'){
+            result = divNum(num1, num2)
+        } else {
+            alert('잘못입력하셨습니다')
+        }
+
+        document.write(`${num1} ${oper} ${num2}에 대한 연산결과는 ${result}입니다.`)
+
+    </script>
+</body>
+</html>

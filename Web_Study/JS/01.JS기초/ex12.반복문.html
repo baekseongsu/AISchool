@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 예제) 100부터 1까지 수를 출력하시오
+        // for(i = 100; i >= 1; i--) {
+        //     console.log(i);
+        // }
+
+        let evenSum = 0
+        let oddSum = 0
+        let even = ''
+        let odd = ''
+
+        for (i = 1; i <= 20; i++) {
+            if(i % 2 == 0) {
+                evenSum += i
+                even = even + i + ' '
+            }
+            else {
+                oddSum += i
+                odd = odd + i + ' '
+            }
+        }
+
+        console.log(`${even}의 합 : ${evenSum}`);
+        console.log(`${odd}의 합 : ${oddSum}`);
+    </script>
+</body>
+</html>

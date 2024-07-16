@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="num">
+        0
+    </p>
+
+    <button onclick="increase()">+</button>
+    <button onclick="decrease()">-</button>
+
+    <script>
+
+        // 예제
+        /* 
+
+            1. increase라는 함수를 선언하고 (화살표) 버튼을 눌렀을 때 그 함수가 호출되는지 확인
+                - console : "increase function called."
+
+            2. decrease라는 함수를 선언하고 (화살표) 버튼을 눌렀을 때 그 함수가 호출되는지 확인
+                - console : "decrease function called."
+
+            3. "0" 이라는 숫자요소를 문서에서 가지고 와서 변수 num에 저장
+            4. increase라는 버튼을 누르면, 0이 하나씩 증가하고
+               decrease라는 버튼을 누르면, 0이 하나씩 감소하도록 하겠다
+
+            5. 이 때, decrease 버튼을 누르더라도 음수로 가지는 않도록 지정
+
+        */
+        let number = document.getElementById('num');
+        // console.log(number);
+        const increase = () => {
+            parseInt(number.innerText++);
+            // console.log(number);
+        }
+        const decrease = () => {
+            if (number.innerText > 0) {
+                parseInt(number.innerText--);
+                // console.log(number);
+            }
+        }
+        
+    </script>
+</body>
+</html>

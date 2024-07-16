@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let curWeight = parseInt(prompt("몸무게가 몇인가요?"));
+        let goalWeight = parseInt(prompt("목표 몸무게가 몇인가요?"));
+
+        console.log("현재 몸무게 : " + curWeight);
+        console.log("목표 몸무게 : " + goalWeight);
+
+        let countWeek = 1;
+        while (true) {
+            let minusWeight = parseInt(prompt(countWeek+"주차 감량 몸무게를 입력해주세요"));
+            console.log(countWeek + "주차 감량 몸무게 : " + minusWeight);
+            curWeight -= minusWeight;
+            countWeek += 1;
+
+            if (curWeight <= goalWeight) {
+                console.log(curWeight + "kg 달성! 축하합니다");
+                break;
+            }
+        }
+
+    </script>
+</body>
+</html>

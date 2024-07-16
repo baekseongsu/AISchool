@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="inputText" />
+    <p id="container"></p>
+
+    <script>
+      // 1. id가 inputText인 input 요소를 가져와서 inputTxt라는 변수에 저장
+      // 2. 그 inputTxt요소가 "변경될때마다" inputText 안에 있는 값을 console에 확인
+      // 3. 가져온 값을 id가 container인 p태그 안에 입력
+
+      let inputText = document.getElementById("inputText");
+      let container = document.getElementById("container");
+      inputText.addEventListener("change", () => {
+        // console.log(inputText.value);
+        container.innerText = inputText.value;
+      });
+    </script>
+  </body>
+</html>

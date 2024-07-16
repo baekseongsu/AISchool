@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="inputText1" />
+    <br />
+    <br />
+    <input type="text" id="inputText2" />
+    <br />
+    <br />
+    <button id="btn">연산결과</button>
+    <br />
+    <br />
+    <p id="container"></p>
+
+    <script>
+      let text1 = document.getElementById("inputText1");
+      let text2 = document.getElementById("inputText2");
+      let btn = document.getElementById("btn");
+      let container = document.getElementById("container");
+
+      btn.addEventListener("click", () => {
+        let result = parseInt(text1.value) + parseInt(text2.value);
+        container.innerText = `연산결과 : ${result}`;
+      });
+    </script>
+  </body>
+</html>
