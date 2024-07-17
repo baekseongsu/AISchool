@@ -40,10 +40,14 @@ router.post("/login", (req, res) => {
   // ⭐️ select문을 실행할 때 반드시 rows의 length로 조건을 부여할 것!
   // ⭐️ why? 조건이 성립하면 데이터가 들어있는 배열 리턴, 성립하지 않으면 데이터가 비어있는 배열 리턴
   // ⭐️ then? 반드시 데이터의 길이가 0보다 크다 == 데이터가 담겨있다!!
-  let sql = "select id, pw from member where id = ? and pw = ?";
+  let sql = "select id, pw, nick from member where id = ? and pw = ?";
   conn.query(sql, [id, pw], (err, rows) => {
     if (rows.length > 0) {
       console.log("로그인 성공!");
+      // 사용자의 닉네임 정보를 세션에 저장
+      // 사용자의 데이터는 DB에서 조회했기 때문에, rows 변수에서 데이터 꺼내기!
+      req.session.nick = rows[0].nick;
+
       res.redirect("/");
     } else {
       console.log("로그인 실패");
@@ -85,4 +89,11 @@ router.post("/delete", (req, res) => {
     }
   });
 });
+
+// 로그아웃
+router.get("/logout", (req, res) => {
+  req.session.destroy();
+  res.redirect("/");
+});
+
 module.exports = router;

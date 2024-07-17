@@ -3,7 +3,13 @@ const router = express.Router();
 
 // 사용자가 메인에 도착했을 때!
 router.get("/", (req, res) => {
-  res.render("main");
+  // 세션값을 꺼내오기
+  // 값을 넘길 때는 반드시 조건을 달아주자
+  if (req.session.nick) {
+    res.render("main", { nick: req.session.nick });
+  } else {
+    res.render("main");
+  }
 });
 
 // 사용자가 회원가입을 요청했을 때!

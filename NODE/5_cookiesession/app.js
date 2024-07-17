@@ -5,9 +5,6 @@ const mainRouter = require("./routes/mainRouter");
 const cookieRouter = require("./routes/cookie");
 const sessionRouter = require("./routes/session");
 
-// 메인 라우터를 맨위로 올려주자!
-app.use("/", mainRouter);
-
 // 쿠키 세팅
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
@@ -21,10 +18,11 @@ app.use(
     resave: false, // 세션을 항상 재저장하겠냐?
     secret: "secret", // 암호화할 때 사용하는 키값
     store: new fileStore(), // 세션을 저장하기 위한 저장소 세팅
-    saveUninitialized: true, // 세션에 저장할 내용이 없더라도 저장할거냐?
+    saveUninitialized: false, // 세션에 저장할 내용이 없더라도 저장할거냐?
   })
 );
 
+app.use("/", mainRouter);
 app.use("/cookie", cookieRouter);
 app.use("/session", sessionRouter);
 
