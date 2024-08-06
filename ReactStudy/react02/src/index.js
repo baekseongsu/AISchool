@@ -20,6 +20,12 @@ root.render(
     <Myteam dep="전략기획팀" name="강예진"></Myteam>
     <Myteam dep="홍보팀" name="임보미"></Myteam>
     <Myteam dep="기획팀" name="최영화"></Myteam>
+    {/* 
+      신생부서
+      부서명 : 연구개발
+      직원 : X
+    */}
+    <Myteam dep="연구개발"></Myteam>
   </div>
 );
 
