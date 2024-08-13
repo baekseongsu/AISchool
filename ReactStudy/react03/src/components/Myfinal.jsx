@@ -1,5 +1,5 @@
 import React from "react";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const Myfinal = () => {
   // 1. start 버튼을 클릭했을 때 컴퓨터 주사위, 사용자 주사위가 랜덤하게 다른 주사위로 바꿔주세요
@@ -20,6 +20,7 @@ const Myfinal = () => {
   const [userDice, setuserDice] = useState(0);
   const [cpuDice, setcpuDice] = useState(0);
   const [res, setres] = useState("");
+  const [num, setNum] = useState(0);
   let userDicescore = 0;
   let cpuDicescore = 0;
   let edituserScore = 0;
@@ -55,16 +56,31 @@ const Myfinal = () => {
       cpuimgRef.current.src = dice[0];
       userimgRef.current.src = dice[0];
     }
-    if (edituserScore === 10) {
-      setres("User WIN");
-    } else if (editcpuScore === 10) {
-      setres("Com WIN");
-    }
+    // if (edituserScore === 10) {
+    //   setres("User WIN");
+    // } else if (editcpuScore === 10) {
+    //   setres("Com WIN");
+    // }
+
+    setNum(num + 1);
   }
+
+  useEffect(() => {
+    console.log("useEffect");
+
+    if (userScore === 10) {
+      setres("User WIN");
+    } else if (cpuScore === 10) {
+      setres("Con WIN");
+    }
+  }, [cpuScore, userScore]);
+  // [] -> dependency Array (의존 배열)
+  // 의존 배열에 아무것도 넣어주지 않는다면 componentDidMount와 같은 역할을 하게 됨, 즉 페이지가 처음 렌더링 될 때만 실행됨
 
   return (
     <div>
       <h1>DICE GAME</h1>
+      <p>클릭수 : {num}</p>
       <button onClick={start}>Start</button>
 
       <div className="dice">

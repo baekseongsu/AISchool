@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import React from "react";
 
 const MyToDo = () => {
@@ -15,6 +15,20 @@ const MyToDo = () => {
     setlist(list.concat(inputRef.current.value));
     console.log(list);
   }
+
+  // state 변수에 의해서 실행되어지는 함수
+  // state 변수에 지정되는 함수를 만들겠다
+
+  // useEffect : 함수 컴포넌트에서 LifeCycle을 기준으로 실행시키는 함수
+  // useEffenct = componentDidMount + componentDidUpdate
+  useEffect(() => {
+    // 최대 목표 개수에 도달했습니다!!
+    console.log("useEffect");
+
+    if (list.length === 5) {
+      alert("최대 목표 개수에 도달했습니다!!");
+    }
+  });
 
   function delList(delindex) {
     // 배열에 있는 요소 중 사용자가 선택한 요소를 삭제하겠습니다
