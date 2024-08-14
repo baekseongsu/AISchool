@@ -11,6 +11,10 @@ const MyColor = () => {
     display: "inline-block",
   };
 
+  // const testFun = () => test2;
+  // 1. 실행 로직이 한줄이라면 {} 생략 가능하다
+  // 2. {} 생략한 경우 함수실행 로직으로 data가 있다면 해당 data를 반환(return) 하겠습니다.
+
   return (
     <div>
       {colorArray.map((data) => (
