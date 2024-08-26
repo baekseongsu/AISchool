@@ -1,6 +1,6 @@
 import React from "react";
 
-const Myteam = (props) => {
+const Myteam = ({ dep, name }) => {
   // JSX에서 inline style을 적용할 때는 객체 형식으로 적용해야 한다
   return (
     <div
@@ -11,8 +11,8 @@ const Myteam = (props) => {
         margin: "10px auto",
       }}
     >
-      <p>{props.dep}</p>
-      <p>{props.name}</p>
+      <p>{dep}</p>
+      <p>{name}</p>
     </div>
   );
 };
