@@ -51,7 +51,6 @@ const Header = () => {
                     className="me-2 search_input"
                     aria-label="Search"
                   />
-                  <Button variant="outline-success">Search</Button>
                 </Form>
               </div>
               <Nav>

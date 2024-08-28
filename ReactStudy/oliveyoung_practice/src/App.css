@@ -53,6 +53,7 @@
   width: 18rem;
   height: 503px;
   border: 0;
+  text-align: center;
 }
 
 .card_title {
@@ -84,8 +85,8 @@
 
 .prd_flag {
   display: inline-block;
-  text-align: "center";
-  vertical-align: "middle";
+  text-align: center;
+  vertical-align: middle;
   line-height: 17px;
   font-size: 12px;
   font-weight: bold;

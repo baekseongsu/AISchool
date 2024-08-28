@@ -27,8 +27,12 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage></LoginPage>}></Route>
         <Route path="/" element={<MainPage></MainPage>}></Route>
+        {/* URL 파라미터로 데이터 전송 시 path속성에 key를 설정해줘야 한다.
+            ex) /prdDetail/:key
+            * 쿼리스트링으로 전달할 경우 설정하지 않아도 됨
+        */}
         <Route
-          path="/prdDetail"
+          path="/prdDetail/:id"
           element={<ProductDetails></ProductDetails>}
         ></Route>
       </Routes>
