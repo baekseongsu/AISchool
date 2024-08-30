@@ -8,11 +8,16 @@ import { Link, useNavigate } from "react-router-dom";
   - 로그인 클릭 -> 로그인 페이지로 이동
 */
 
-const Header = () => {
+const Header = ({ auth, setAuth }) => {
   const navi = useNavigate();
 
   const goToLogin = () => {
     navi("/login");
+  };
+
+  const goToLogout = () => {
+    setAuth(false);
+    navi("/");
   };
 
   return (
@@ -33,7 +38,11 @@ const Header = () => {
         </ol>
       </div>
       <div className="header-box-util">
-        <button onClick={goToLogin}>로그인</button>
+        {auth ? (
+          <button onClick={goToLogout}>로그아웃</button>
+        ) : (
+          <button onClick={goToLogin}>로그인</button>
+        )}
       </div>
     </div>
   );
