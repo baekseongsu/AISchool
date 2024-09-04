@@ -19,13 +19,20 @@ const CommentList = () => {
   // 검색 결과를 보관하는 state
   const [filter, setFilter] = useState([]);
 
-  useEffect(() => {}, [commentList, keyword]);
+  useEffect(() => {
+    if (keyword === "") {
+      setFilter(commentList);
+    } else {
+      let list = commentList.filter((item) => item.content.includes(keyword));
+      setFilter(list);
+    }
+  }, [commentList, keyword]);
 
   return (
     <div>
-      <div>댓글수: {commentList.length}</div>
+      <div>댓글수: {filter.length}</div>
       <hr />
-      {commentList.map((item) => (
+      {filter.map((item) => (
         <CommentItem key={item.id} comment={item} />
       ))}
     </div>
