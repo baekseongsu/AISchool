@@ -76,6 +76,7 @@ body {
 /* movie-details */
 .movie-details {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 100px 0;
   gap: 50px;
@@ -95,7 +96,7 @@ body {
 }
 
 .movie-details .genre > span {
-  width: 60px;
+  /* width: 60px; */
   height: 30px;
   line-height: 20px;
   font-size: 16px;

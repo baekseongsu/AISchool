@@ -13,6 +13,7 @@ const moiveSlice = createSlice({
       state.popularMovies = action.payload.p;
       state.topRateMovies = action.payload.t;
       state.upcomingMovies = action.payload.u;
+      state.genreList = action.payload.g;
     },
   },
 });
