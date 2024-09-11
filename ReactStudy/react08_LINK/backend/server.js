@@ -8,6 +8,8 @@ const path = require("path");
 
 // 정적 파일 연결
 app.use(express.static(path.join(__dirname, "..", "frontend", "build")));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 app.use("/", indexRouter);
 
