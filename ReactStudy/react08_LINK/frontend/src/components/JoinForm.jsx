@@ -1,54 +1,49 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import api from "../api";
+import { useNavigate } from "react-router-dom";
 
 const JoinForm = () => {
-  const [id, setId] = useState("");
-  const [nick, setNick] = useState("");
-  const [pw, setPw] = useState("");
-  const [checkpw, setCheckPw] = useState("");
+  // const [member, setMember] = useState({});
 
+  const id_Ref = useRef();
+  const pw_Ref = useRef();
+  const nickName_Ref = useRef();
+
+  const navigate = useNavigate();
   const handleJoin = async (e) => {
     e.preventDefault();
 
-    let res = await api.post("./join", {
-      id: id,
-      nick: nick,
-      pw: pw,
-      checkpw: checkpw,
-    });
+    let member = {
+      id: id_Ref.current.value,
+      pw: pw_Ref.current.value,
+      nickName: nickName_Ref.current.value,
+    };
+
+    let res = await api.post("/join", { member: member });
     console.log(res.data);
+
+    if (res.data.result === "회원가입 success") {
+      alert("회원가입성공!");
+      navigate("/");
+    } else {
+      alert("회원가입실패..");
+    }
   };
   return (
     <div>
       <form onSubmit={handleJoin}>
-        <input
-          type="text"
-          placeholder="아이디"
-          name="id"
-          onChange={(e) => setId(e.target.value)}
-        />
+        <input type="text" placeholder="아이디" name="id" ref={id_Ref} />
         <br />
         <input
           type="text"
           placeholder="닉네임"
           name="nick"
-          onChange={(e) => setNick(e.target.value)}
+          ref={nickName_Ref}
         />
         <br />
-        <input
-          type="password"
-          placeholder="비밀번호"
-          name="pw"
-          onChange={(e) => setPw(e.target.value)}
-        />
+        <input type="password" placeholder="비밀번호" name="pw" ref={pw_Ref} />
         <br />
-        <input
-          type="password"
-          placeholder="비밀번호 확인"
-          name="checkpw"
-          onChange={(e) => setCheckPw(e.target.value)}
-        />
-        <br />
+
         <input type="submit" value="회원가입" />
       </form>
     </div>

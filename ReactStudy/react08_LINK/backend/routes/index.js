@@ -30,23 +30,27 @@ router.post("/getData", (req, res) => {
 
 // 실습) 회원가입, 로그인 처리를 할 수 있는 기능 구현하기
 router.post("/join", (req, res) => {
-  console.log("회원가입", req.body);
+  console.log("회원가입 정보", req.body);
 
   let sql = `
   INSERT INTO NODEJS_MEMBER
   VALUES(?, ?, ?)
   `;
 
-  conn.query(sql, [req.body.id, req.body.pw, req.body.nick], (err, rows) => {
-    if (err) {
-      console.log("join query 이슈 발생!");
+  conn.query(
+    sql,
+    [req.body.member.id, req.body.member.pw, req.body.member.nickName],
+    (err, rows) => {
+      if (err) {
+        console.log("join query 이슈 발생!");
+      }
+      if (rows) {
+        res.send({ result: "회원가입 success" });
+      } else {
+        res.send({ result: "회원가입 fail" });
+      }
     }
-    if (rows) {
-      res.send({ result: "회원가입 success" });
-    } else {
-      res.send({ result: "회원가입 fail" });
-    }
-  });
+  );
 });
 
 router.post("/login", (req, res) => {
@@ -56,16 +60,20 @@ router.post("/login", (req, res) => {
   SELECT * 
   from NODEJS_MEMBER
   WHERE ID = ? AND PW = ?`;
-  conn.query(sql, [req.body.id, req.body.pw], (err, rows) => {
-    if (err) {
-      console.log("login query 이슈 발생!");
+  conn.query(
+    sql,
+    [req.body.loginMember.id, req.body.loginMember.pw],
+    (err, rows) => {
+      if (err) {
+        console.log("login query 이슈 발생!");
+      }
+      if (rows.length > 0) {
+        res.send({ result: "로그인 success" });
+      } else {
+        res.send({ result: "로그인 fail" });
+      }
     }
-    if (rows.length > 0) {
-      res.send({ result: "로그인 success" });
-    } else {
-      res.send({ result: "로그인 fail" });
-    }
-  });
+  );
 });
 
 module.exports = router;
