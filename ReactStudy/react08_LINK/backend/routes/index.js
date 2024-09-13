@@ -68,7 +68,7 @@ router.post("/login", (req, res) => {
         console.log("login query 이슈 발생!");
       }
       if (rows.length > 0) {
-        res.send({ result: "로그인 success" });
+        res.send({ result: "로그인 success", nickName: rows[0].NICKNAME });
       } else {
         res.send({ result: "로그인 fail" });
       }
